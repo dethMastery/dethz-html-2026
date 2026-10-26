@@ -13,6 +13,12 @@ const contacts = [
   },
 ];
 
+const contactLoop = (contact) => {
+  return `<a class="contacts-container" href="${contact.value.split("|")[0]}" target="_blank">
+      <img class="contact-icon" src="${contact.floor === "Github" ? "/src/img/github.svg" : contact.floor === "X (Formerly Twitter)" ? "/src/img/x.svg" : contact.floor === "E-Mail" ? "/src/img/mail.svg" : ""}" alt="${contact.floor}" />
+    </a>`;
+};
+
 const contactLoad = () => {
   const contactElement = document.querySelector("#user-contacts");
 

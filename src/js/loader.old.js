@@ -1,0 +1,2 @@
+userLoad();
+contactLoad();

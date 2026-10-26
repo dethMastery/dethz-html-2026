@@ -1,0 +1,148 @@
+#user-container {
+  height: fit-content;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  gap: 1rem;
+}
+
+#user-data {
+  background: var(--ctp-crust);
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+
+  &.hidden {
+    padding-top: 50dvh;
+  }
+
+  .user-image {
+    width: 200px;
+    aspect-ratio: 1/1;
+
+    border-radius: 100%;
+    padding: .5rem;
+
+    border: 2px solid var(--ctp-sapphire);
+
+    .image {
+      width: 100%;
+      aspect-ratio: 1/1;
+
+      border-radius: 100%;
+
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+    }
+
+    &:hover {
+      padding: .25rem;
+      border: 10px solid var(--ctp-flamingo);
+    }
+  }
+
+  .data-user {
+    .user-info {
+      .sub {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        opacity: .6;
+
+        p {
+          margin: 0;
+          font-size: 15px;
+        }
+      }
+      
+      div.contacts-container {
+        margin-top: 2rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .75rem;
+
+        a {
+          width: fit-content;
+          aspect-ratio: 1/1;
+
+          background: var(--ctp-text);
+          border-radius: 100%;
+          padding: .5rem;
+          
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 40px;
+            aspect-ratio: 1/1;
+          }
+
+          &:hover {
+            opacity: .75;
+            scale: .9;
+          }
+        }
+      }
+    }
+  }
+}
+
+#user-detail {
+  max-width: calc(18rem * 3);
+  background: var(--ctp-crust);
+
+  padding: 1rem;
+
+  .card-container {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    gap: 1rem;
+
+    & .card {
+      width: 15rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #user-data {
+    flex-direction: column;
+  }
+
+  #user-detail {
+    max-width: 22rem;
+
+    .card-container {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 1rem;
+    }
+  }
+}
+
+html[data-theme="latte"] #user-data {
+  a.contacts-container {
+    img {
+      filter: invert();
+    }
+  }
+}

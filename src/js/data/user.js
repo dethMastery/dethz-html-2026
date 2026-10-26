@@ -40,7 +40,7 @@ const userData = {
     },
     {
       floor: "Interview Availability",
-      value: "true",
+      value: true,
     },
   ],
 };

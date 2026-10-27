@@ -1,5 +1,5 @@
 #user-container {
-  height: fit-content;
+  min-height: 100dvh;
   margin: auto 0;
   display: flex;
   flex-direction: column;

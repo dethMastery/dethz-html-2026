@@ -1,2 +1,3 @@
 userLoad();
+eduLoader();
 contactLoad();

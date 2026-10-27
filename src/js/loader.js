@@ -1,29 +1,3 @@
-const unHide = (element, time) => {
-  time = (time === undefined) | (time === null) ? 1 : time;
-
-  window.setTimeout(() => {
-    element.classList.remove("hidden");
-  }, 1000 * time);
-
-  window.setTimeout(
-    () => {
-      element.classList.remove("hide");
-    },
-    1000 * time + 500,
-  );
-};
-
-window.setTimeout(() => {
-  document.querySelector(".container").classList.remove("hidden");
-  document.querySelector(".backdrop").classList.remove("hidden");
-}, 1000);
-
-window.setTimeout(() => {
-  document.querySelector(".container").classList.remove("hide");
-  document.querySelector(".backdrop").classList.remove("hide");
-  document.querySelector(".protect").classList.add("hidden");
-}, 1500);
-
 // User Loader
 (() => {
   const element = document.querySelector("#user-data");
@@ -49,7 +23,6 @@ window.setTimeout(() => {
 
   unHide(element, 1.5);
 })();
-
 (() => {
   const element = document.querySelector("#user-detail");
 
@@ -114,3 +87,20 @@ window.setTimeout(() => {
     );
   })();
 })();
+
+// Content Unhide
+unHide(document.querySelector(".inner-container"), 4);
+
+// Education Loader
+(() => {
+  const element = document.querySelector("#user-edu");
+
+  const cardList = revData.map((data) => cardLoop(data)).join("");
+  const container = `<div class="education-container">${cardList}</div>`;
+
+  element.innerHTML = `<h2>Educational Profile</h2>` + container;
+  if (typeof initTimelineDrag === "function") {
+    initTimelineDrag();
+  }
+})();
+

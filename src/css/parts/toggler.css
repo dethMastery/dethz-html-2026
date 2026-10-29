@@ -1,4 +1,5 @@
-.theme-toggle {
+.theme-toggle,
+.bg-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,20 +18,61 @@
   position: fixed;
   z-index: 1000;
   bottom: 2rem;
+}
+
+.theme-toggle {
   right: 2rem;
 }
 
-.theme-toggle:hover {
+.bg-toggle {
+  right: 6.5rem;
+}
+
+.theme-toggle:hover,
+.bg-toggle:hover {
   background-color: var(--ctp-surface1);
   border-color: var(--accent);
   color: var(--accent);
   transform: scale(1.45);
 }
 
-.theme-toggle:active {
+.theme-toggle:active,
+.bg-toggle:active {
   transform: scale(1.35);
 }
 
-.theme-toggle svg {
+.theme-toggle svg,
+.bg-toggle svg {
   display: block;
+}
+
+.bg-toggle .icon-eye-off {
+  display: none;
+}
+
+/* Background watch mode */
+body.bg-mode .container,
+body.bg-mode .backdrop,
+body.bg-mode .protect,
+html.bg-mode .container,
+html.bg-mode .backdrop,
+html.bg-mode .protect {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+body.bg-mode #skip-btn,
+html.bg-mode #skip-btn {
+  display: none !important;
+}
+
+body.bg-mode .bg-toggle .icon-eye,
+html.bg-mode .bg-toggle .icon-eye {
+  display: none !important;
+}
+
+body.bg-mode .bg-toggle .icon-eye-off,
+html.bg-mode .bg-toggle .icon-eye-off {
+  display: block !important;
 }

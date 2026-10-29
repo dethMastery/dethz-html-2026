@@ -10,7 +10,11 @@ const removeSkipButton = () => {
 const unHide = (element, time) => {
   time = (time === undefined) | (time === null) ? 1 : time;
 
+  if (!element) return;
+
   if (isSkip) {
+    element.classList.remove("hidden");
+    element.classList.remove("hide");
     return;
   }
 
@@ -70,3 +74,15 @@ if (skipBtn) {
 window.setTimeout(() => {
   removeSkipButton();
 }, 4500);
+
+// Check query param for skipping animation
+const url = new URL(window.location.href);
+if (url.searchParams.has("skip") && url.searchParams.get("skip") !== "false") {
+  skip();
+  url.searchParams.delete("skip");
+  window.history.replaceState(
+    {},
+    "",
+    url.pathname + (url.search ? url.search : "") + url.hash,
+  );
+}

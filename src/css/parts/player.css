@@ -1,0 +1,86 @@
+#discord-status {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .spotify {
+    width: fit-content;
+
+    display: inline-block;
+    gap: 1rem;
+    
+    div.cover-img {
+      width: 150px;
+      aspect-ratio: 1/1 !important;
+      
+      display: inline-block;
+      
+      background-position: center !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+    }
+    
+    .song-data {
+      min-width: calc(18rem - 100px - 1rem);
+      width: calc(18rem);
+      height: calc(150px - 1rem) !important;
+      
+      background: var(--ctp-surface1);
+      padding: .5rem;
+      
+      overflow-y: auto;
+
+      display: inline-block;
+
+      * {
+        color: var(--ctp-text);
+      }
+      
+      a {
+        height: calc(150px - 1rem - 1.25rem - 1rem - .5rem - 1.5rem);
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: .5rem;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;   /* Change this number to limit to 1, 2, 4, etc. lines */
+        line-clamp: 2;
+        overflow: hidden;
+
+        /* display: block; */
+        text-decoration: none;
+
+        &:hover {
+          opacity: .6;
+          color: var(--ctp-sapphire);
+        }
+      }
+
+      p {
+        font-size: 1.25rem;
+        text-align: right;
+      }
+      
+      p.song-album {
+        font-size: 1rem;
+        opacity: .6 !important;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 700px) {
+    div.cover-img {
+      width: 100px;
+    }
+  }
+}

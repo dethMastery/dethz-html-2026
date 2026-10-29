@@ -55,20 +55,31 @@
 
   const cardContainer = `<div class="card-container">${cardItem}</div>`;
 
-  element.innerHTML = userInfo + cardContainer + "";
+  element.innerHTML =
+    userInfo + cardContainer + "<div id='discord-status'></div>";
+
+  connectDiscordSocket();
 
   (() => {
+    if (isSkip) {
+      element.classList.remove("hidden");
+      element.classList.remove("hide");
+      return;
+    }
+
     window.document.querySelectorAll("#user-detail > *").forEach((e) => {
       e.classList.add("hidden");
       e.classList.add("hide");
     });
 
     window.setTimeout(() => {
+      if (isSkip) return;
       element.classList.remove("hidden");
     }, 1000 * 2);
 
     window.setTimeout(
       () => {
+        if (isSkip) return;
         element.classList.remove("hide");
         window.document.querySelectorAll("#user-detail > *").forEach((e) => {
           e.classList.remove("hidden");
@@ -79,6 +90,7 @@
 
     window.setTimeout(
       () => {
+        if (isSkip) return;
         window.document.querySelectorAll("#user-detail > *").forEach((e) => {
           e.classList.remove("hide");
         });

@@ -8,6 +8,7 @@
 
 @import url('/src/css/parts/data/user.css');
 @import url('/src/css/parts/data/education.css');
+@import url('/src/css/parts/data/skills.css');
 
 * {
   font-family: 'Fira Sans', sans-serif;

@@ -1,3 +1,4 @@
 userLoad();
 eduLoader();
+skillLoader();
 contactLoad();

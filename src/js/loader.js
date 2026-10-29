@@ -104,3 +104,14 @@ unHide(document.querySelector(".inner-container"), 4);
   }
 })();
 
+(() => {
+  const element = document.querySelector("#user-skill");
+
+  const skillList = Skill.map(
+    (skill) =>
+      `<a href="${skill.link}" target="_blank" class="tech-icon" style="background: url(${skill.img})"></a>`,
+  ).join("");
+
+  element.innerHTML =
+    "<h2>Tech Stacks</h2>" + `<div class="tech-stacks">${skillList}</div>`;
+})();

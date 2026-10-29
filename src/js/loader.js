@@ -115,3 +115,45 @@ unHide(document.querySelector(".inner-container"), 4);
   element.innerHTML =
     "<h2>Tech Stacks</h2>" + `<div class="tech-stacks">${skillList}</div>`;
 })();
+
+// Works Loader
+(() => {
+  const element = document.querySelector("#user-works");
+
+  const cardList = works
+    .map((work) => {
+      const lang =
+        work.lang != ""
+          ? work.lang
+              .split(",")
+              .map((lang) => `<p class="tech-stack-item">${lang}</p>`)
+              .join("")
+          : "";
+
+      return `<a class="work-container" target="_blank" href="${work.link}"><h3 class="name">${work.name}</h3><p class="desp">${work.desp}</p><div class="lang-container">${lang}</div></a>`;
+    })
+    .join("");
+
+  const container = `<div class="works-container">${cardList}</div>`;
+
+  element.innerHTML = "<h2>Works</h2>" + container;
+})();
+
+// Contact
+(() => {
+  const emailLink = document.querySelector("#email");
+
+  const mailData = contacts
+    .filter((value) => value.floor.toLowerCase() === "e-mail")[0]
+    .value.split("|");
+
+  emailLink.href = mailData[0];
+  emailLink.innerHTML += mailData[1];
+})();
+
+// Footer
+(() => {
+  const yearElement = document.querySelector("#year");
+  const year = new Date().getFullYear();
+  yearElement.textContent = year != 2026 ? `2026 - ${year}` : `2026`;
+})();

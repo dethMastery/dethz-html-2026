@@ -205,6 +205,11 @@ document.querySelector('#pdf-download').addEventListener('click', () => {
     y += h;
   }
 
+  // profile image, page 1 only, drawn last = on top of the section rule line
+  const imgSize = 75 * PT; // 100x100 pt
+  doc.setPage(1);
+  doc.addImage(userData.image, 'WEBP', W - M - imgSize, M - 20 * PT * 0.72, imgSize, imgSize);
+
   // Footer on every page
   const pages = doc.internal.getNumberOfPages();
   for (let i = 1; i <= pages; i++) {

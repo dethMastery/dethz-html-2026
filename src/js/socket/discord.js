@@ -41,7 +41,7 @@ const connectDiscordSocket = () => {
         case 0: {
           // Event: INIT_STATE or PRESENCE_UPDATE
           discordComponent(d);
-          console.log(`[Discord Socket] ${t}:`, d);
+          // console.log(`[Discord Socket] ${t}:`, d);
           break;
         }
 

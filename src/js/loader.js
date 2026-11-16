@@ -30,6 +30,10 @@
   <p>&nbsp;&nbsp;${userData.desp}</p>
 </div>`;
 
+  const downloadButton = `<div class="download-container">
+  <button id="pdf-download">Download CV</button>
+</div>`;
+
   const cardItem = userData.details
     .map((data) => {
       let value = data.value;
@@ -56,7 +60,7 @@
   const cardContainer = `<div class="card-container">${cardItem}</div>`;
 
   element.innerHTML =
-    userInfo + cardContainer + "<div id='discord-status'></div>";
+    userInfo + downloadButton + cardContainer + "<div id='discord-status'></div>";
 
   connectDiscordSocket();
 
